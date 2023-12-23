@@ -8,11 +8,12 @@ CREATE TABLE Account (
 
 
 INSERT INTO Account
-VALUES ('piacini.vinicius@gmail.com', 'senha123'),
-		('vinipiacini007@gmail.com', 'pa55word'),
-		('bruno.costa@hotmail.com', 'numsei'),
-		('bruno@gmail.com', 'senhamuitocomplexa'),
-		('contateste@gmail.com', 'senhabemsimples');
+VALUES 
+	('piacini.vinicius@gmail.com', 'senha123'),
+	('vinipiacini007@gmail.com', 'pa55word'),
+	('bruno.costa@hotmail.com', 'numsei'),
+	('bruno@gmail.com', 'senhamuitocomplexa'),
+	('contateste@gmail.com', 'senhabemsimples');
 
 
 SELECT *
@@ -65,10 +66,10 @@ CREATE TABLE _User
 
 
 INSERT INTO _User
-VALUES  ('piacini.vinicius@gmail.com', 'Vini'),
-		('piacini.vinicius@gmail.com', 'Sara'),
-		('vinipiacini007@gmail.com', 'Vini');
-
+VALUES  
+	('piacini.vinicius@gmail.com', 'Vini'),
+	('piacini.vinicius@gmail.com', 'Sara'),
+	('vinipiacini007@gmail.com', 'Vini');
 
 SELECT *
 FROM _User;
@@ -86,11 +87,12 @@ CREATE TABLE _Content(
 
 
 INSERT INTO _Content
-VALUES ('00000000000000000001','aquele filme que o personagem faz aquela coisa','Aquele la','1/12/2022'),
-	   ('00000000000000000002','o outro que eles fazem outras coisas em outro lugar','O outro','1/1/2022'),
-	   ('00000000000000000003','','','1/1/2022'),
-	   ('00000000000000000004','','','1/1/2018'),
-	   ('00000000000000000005','','','1/1/2017');
+VALUES 
+	('00000000000000000001','aquele filme que o personagem faz aquela coisa','Aquele la','1/12/2022'),
+	('00000000000000000002','o outro que eles fazem outras coisas em outro lugar','O outro','1/1/2022'),
+	('00000000000000000003','','','1/1/2022'),
+	('00000000000000000004','','','1/1/2018'),
+	('00000000000000000005','','','1/1/2017');
 
 
 SELECT *
@@ -105,11 +107,12 @@ CREATE TABLE Category (
 
 
 INSERT INTO Category
-VALUES  ('ação'),
-		('aventura'),
-		('comedia'),
-		('drama'),
-		('terror');
+VALUES  
+	('ação'),
+	('aventura'),
+	('comedia'),
+	('drama'),
+	('terror');
 
 
 SELECT *
@@ -136,7 +139,8 @@ CREATE TABLE Watches(
 );
 
 INSERT INTO Watches
-VALUES ('Vini', 'vinipiacini007@gmail.com', '00000000000000000001', '22/12/2023 15:15');
+VALUES 
+	('Vini', 'vinipiacini007@gmail.com', '00000000000000000001', '22/12/2023 15:15');
 
 
 SELECT *
