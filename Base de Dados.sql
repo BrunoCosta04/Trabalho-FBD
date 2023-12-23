@@ -9,11 +9,8 @@ CREATE TABLE Account (
 
 INSERT INTO Account
 VALUES 
-	('piacini.vinicius@gmail.com', 'senha123'),
-	('vinipiacini007@gmail.com', 'pa55word'),
-	('bruno.costa@hotmail.com', 'numsei'),
-	('bruno@gmail.com', 'senhamuitocomplexa'),
-	('contateste@gmail.com', 'senhabemsimples');
+	('exemplo@gmail.com', 'senha123'),
+	('teste@gmail.com', 'pa55word');
 
 
 SELECT *
@@ -67,9 +64,9 @@ CREATE TABLE _User
 
 INSERT INTO _User
 VALUES  
-	('piacini.vinicius@gmail.com', 'Vini'),
-	('piacini.vinicius@gmail.com', 'Sara'),
-	('vinipiacini007@gmail.com', 'Vini');
+	('exemplo@gmail.com', 'Vini'),
+	('exemplo@gmail.com', 'Sara'),
+	('teste@gmail.com', 'Vini');
 
 SELECT *
 FROM _User;
@@ -140,7 +137,7 @@ CREATE TABLE Watches(
 
 INSERT INTO Watches
 VALUES 
-	('Vini', 'vinipiacini007@gmail.com', '00000000000000000001', '22/12/2023 15:15');
+	('Vini', 'teste@gmail.com', '00000000000000000001', '22/12/2023 15:15');
 
 
 SELECT *
