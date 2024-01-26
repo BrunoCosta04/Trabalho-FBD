@@ -82,10 +82,20 @@ INSERT INTO Watches (email, userName, contentID, stopTime) VALUES
 -- Inserindo exemplos na tabela Acts
 INSERT INTO Acts (workerID, titleID) VALUES 
 (1, 1),
+(1, 3),
+(1, 5),
 (2, 2),
-(3, 3),
+(2, 4),
+(2, 1),
+(3, 2),
+(3, 4),
+(3, 5),
+(4, 1),
+(4, 2),
 (4, 4),
-(5, 5);
+(5, 2),
+(5, 1),
+(5, 4);
 
 -- Inserindo exemplos na tabela Series
 INSERT INTO Series (seriesID, numSeasons) VALUES 
