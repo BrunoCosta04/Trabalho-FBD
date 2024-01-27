@@ -103,6 +103,7 @@ DROP TABLE IF EXISTS Title Cascade;
 
 CREATE TABLE Title(
 	titleID INTEGER PRIMARY KEY,
+	titleName VARCHAR(50),
 	yearProd INTEGER,
 	synopsis VARCHAR(250),
 	rating SMALLINT,
@@ -207,21 +208,15 @@ CREATE 	TABLE Belongs(
 -------------------------------------//-----------------------------------
 -- população das tabelas
 
--- Inserindo exemplos na tabela 
-INSERT INTO CreditCard (cardNumber, securityCode, cardBrand, cardName) VALUES 
-('1234567890123456', '123', 'Visa', 'John Doe'),
-('9876543210987654', '456', 'Mastercard', 'Jane Smith'),
-('1111222233334444', '789', 'American Express', 'Bob Johnson'),
-('5555666677778888', '321', 'Discover', 'Alice Brown'),
-('9999000011112222', '654', 'Visa', 'Charlie Green');
 
 -- Inserindo exemplos na tabela 
 INSERT INTO Account (email, _password, cardNumber) VALUES 
+('joaopedro@gmail.com', 'password9', '9999000011112222'),
 ('vini@example.com', 'password1', '1234567890123456'),
 ('bruno@example.com', 'password2', '9876543210987654'),
-('vinicius@example.com', 'password3', '1111222233334444'),
+('vinicius@example.com', 'password3', '9911222233334444'),
 ('bcosta@example.com', 'password4', '5555666677778888'),
-('vpiacini@example.com', 'password5', '9999000011112222');
+('vpiacini@example.com', 'password5', '0099000011112222');
 
 -- Inserindo exemplos na tabela _Plan
 INSERT INTO _Plan (planID, planName, fee) VALUES 
@@ -262,12 +257,12 @@ INSERT INTO Worker (workerID, oscar, workerName) VALUES
 (5, false, 'Brad Pitt');
 
 -- Inserindo exemplos na tabela 
-INSERT INTO Title (titleID, yearProd, synopsis, rating, categoryName, director) VALUES
-(1, 2020, 'A story about friendship', 8, 'Drama', 1),
-(2, 2019, 'An action-packed adventure', 7, 'Action', 2),
-(3, 2021, 'A thrilling mystery', 9, 'Thriller', 3),
-(4, 2018, 'A romantic comedy', 6, 'Romance', 4),
-(5, 2022, 'An animated fantasy', 8, 'Animation', 5);
+INSERT INTO Title (titleID,titleName, yearProd, synopsis, rating, categoryName, director) VALUES
+(1,'I Love my Friends', 2020, 'A story about friendship', 8, 'Drama', 1),
+(2,'Guardians of the Galaxy', 2019, 'An action-packed adventure', 7, 'Action', 2),
+(3,'The twilight', 2021, 'A thrilling mystery', 9, 'Thriller', 3),
+(4,'How to lose a man in 10 days', 2018, 'A romantic comedy', 6, 'Romance', 4),
+(5,'Star Wars', 2022, 'An animated fantasy', 8, 'Animation', 5);
 
 -- Inserindo exemplos na tabela 
 INSERT INTO _Content (contentID, duration, titleID) VALUES
@@ -284,6 +279,16 @@ INSERT INTO Watches (email, userName, contentID, stopTime) VALUES
 ('bruno@example.com', 'user2', 3, '01:30:00'),
 ('vini@example.com', 'sara', 4, '02:00:00'),
 ('bruno@example.com', 'bruno', 5, '01:20:00');
+
+
+-- Inserindo exemplos na tabela 
+INSERT INTO CreditCard (cardNumber, securityCode, cardBrand, cardName, email) VALUES 
+('1234567890123456', '123', 'Visa', 'John Doe', 'vini@example.com'),
+('9876543210987654', '456', 'Mastercard', 'Jane Smith', 'bruno@example.com'),
+('9911222233334444', '789', 'American Express', 'Bob Johnson', 'vinicius@example.com'),
+( '0099000011112222', '321', 'Discover', 'Alice Brown', 'vpiacini@example.com'),
+('9999000011112222', '654', 'Visa', 'Charlie Green', 'joaopedro@gmail.com');
+
 
 -- Inserindo exemplos na tabela Acts
 INSERT INTO Acts (workerID, titleID) VALUES 
@@ -307,6 +312,7 @@ INSERT INTO Belongs (seriesID, episodeID, season) VALUES
 (1, 2, 1),
 (2, 3, 1),
 (2, 4, 1),
+(3, 5, 1);
 
 --------------------------------------------//----------------------------------
 
@@ -365,4 +371,3 @@ where planid in (select planid from
 
 -- Acho que a ultima é livre (?)
 -- 8 
-(3, 5, 1);

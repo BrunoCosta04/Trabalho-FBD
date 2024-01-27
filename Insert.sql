@@ -2,12 +2,12 @@
 -- população das tabelas
 
 -- Inserindo exemplos na tabela 
-INSERT INTO CreditCard (cardNumber, securityCode, cardBrand, cardName) VALUES 
-('1234567890123456', '123', 'Visa', 'John Doe'),
-('9876543210987654', '456', 'Mastercard', 'Jane Smith'),
-('1111222233334444', '789', 'American Express', 'Bob Johnson'),
-('5555666677778888', '321', 'Discover', 'Alice Brown'),
-('9999000011112222', '654', 'Visa', 'Charlie Green');
+INSERT INTO CreditCard (cardNumber, securityCode, cardBrand, cardName, email) VALUES 
+('1234567890123456', '123', 'Visa', 'John Doe', 'vini@example.com'),
+('9876543210987654', '456', 'Mastercard', 'Jane Smith', 'bruno@example.com'),
+('1111222233334444', '789', 'American Express', 'Bob Johnson', 'vinicius@example.com'),
+('5555666677778888', '321', 'Discover', 'Alice Brown', 'vpiacini@example.com'),
+('9999000011112222', '654', 'Visa', 'Charlie Green', 'joaopedro@gmail.com');
 
 -- Inserindo exemplos na tabela 
 INSERT INTO Account (email, _password, cardNumber) VALUES 
