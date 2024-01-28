@@ -89,7 +89,14 @@ where exists ( select email
 --	responder questões do tipo TODOS ou NENHUM que <referencia> (isto é, não existe formulação
 --	equivalente usando simplesmente joins ou subconsultas com (NOT) IN ou demais operadores relacionais)
 
--- 5
+-- 5 Os usuários que ja assistiram a titulos com nota igual ou menor a 6.
+select email, userName
+from watches natural join _content
+where not exists ( select titleid
+					from title 
+					where rating > 6 and
+					_content.titleid = title.titleid)
+
 
 
 --	No mínimos duas consultas devem utilizar a visão definida no item anterior.
