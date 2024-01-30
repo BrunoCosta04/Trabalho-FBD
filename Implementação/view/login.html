@@ -19,7 +19,7 @@
 
   <body>
     <div
-      class="d-flex justify-content-center flex-column align-items-center bg-success min-vh-100"
+      class="d-flex justify-content-center flex-column align-items-center bg-dark min-vh-100"
     >
       {% if tipo == 'positivo' %}
       <div
@@ -35,11 +35,11 @@
       </div>
       {% endif %}
 
-      <div class="w-50 bg-success-subtle rounded-5 p-5 shadow-lg">
+      <div class="w-50 bg-danger-subtle rounded-5 p-5 shadow-lg">
         <form method="POST" class="d-flex flex-column">
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <label class="form-label" for="loginName">Email or username</label>
+            <label class="form-label" for="loginName">Email</label>
             <div class="d-flex">
               <span><i class="bi bi-person fs-4"></i></span
               ><input
@@ -68,7 +68,7 @@
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block m-4">
+          <button type="submit" class="btn btn-danger btn-block m-4">
             Sign in
           </button>
 

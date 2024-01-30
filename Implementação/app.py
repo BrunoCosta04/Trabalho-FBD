@@ -3,7 +3,6 @@ import psycopg2 as pg
 from flask import (
     Flask,
     g,
-    jsonify,
     redirect,
     render_template,
     request,
@@ -15,18 +14,19 @@ from flask import (
 app = Flask(__name__, template_folder='view')
 app.secret_key = 'secretkey'
 
+
 nomeBaseDados = 'FBD'
 senha = 'Mensageiro1324'
 
+
 conection = pg.connect(host = 'localhost', dbname = nomeBaseDados, user = 'postgres', password = senha, port = 5432)
 cursor = conection.cursor()
-
 
 # Condere se existe uma sessão atualmente com um usuario válido, para prevenir que uma pessoa aleatoria entre diretamente no meio do sistema
 @app.before_request
 def before_request():
     if 'username' in session:
-        usuario = user.Usuario.achaUsuario("'"+session['username']+"'", cursor)
+        usuario = user.Account.achaUsuario("'"+session['username']+"'", cursor)
         g.usuario = usuario
 
 # Redireciona para tela de login
@@ -45,7 +45,7 @@ def login(tipo, mensagem):
         password = formulario['password']
 
          # Verifica se usuario e senha concedem entrada
-        if  user.Usuario.verifyUsernamePassword("'" + username + "'", password, cursor):
+        if  user.Account.verifyUsernamePassword("'" + username + "'", password, cursor):
             session['username'] = username
              # Redireciona para pagina principal
              # tipo se relaciona a mensagem que podem ser mostradas na tela de menu
