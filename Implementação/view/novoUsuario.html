@@ -19,7 +19,7 @@
 
   <body>
     <div
-      class="d-flex justify-content-center flex-column align-items-center bg-success min-vh-100"
+      class="d-flex justify-content-center flex-column align-items-center bg-dark min-vh-100"
     >
       {% if errorUsermaneExists %}
       <div
@@ -35,7 +35,7 @@
       </div>
       {% endif %}
 
-      <div class="w-50 bg-success-subtle rounded-5 p-5 shadow-lg">
+      <div class="w-50 bg-danger-subtle rounded-5 p-5 shadow-lg">
         <form method="POST" class="d-flex flex-column">
           <!-- Email input -->
           <div class="form-outline mb-4">
@@ -52,6 +52,7 @@
             </div>
           </div>
 
+          <!-- POSSIVEL SER INSERIDO POSTERIORMENTE
           <div class="form-outline mb-4">
             <label class="form-label" for="nome">Nome Completo</label>
             <div class="d-flex">
@@ -64,22 +65,7 @@
                 placeholder="Nome Completo"
               />
             </div>
-          </div>
-
-          <!-- username input-->
-          <div class="form-outline mb-4">
-            <label class="form-label" for="loginName">Username</label>
-            <div class="d-flex">
-              <span><i class="bi bi-person fs-4 mx-1"></i></span
-              ><input
-                id="loginName"
-                class="form-control"
-                type="text"
-                name="username"
-                placeholder="Username"
-              />
-            </div>
-          </div>
+          </div> -->
 
           <!-- Password input -->
           <div class="form-outline mb-3">
@@ -110,7 +96,7 @@
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block m-4">
+          <button type="submit" class="btn btn-danger btn-block m-4">
             Inscrever-se!
           </button>
         </form>

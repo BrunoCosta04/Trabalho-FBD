@@ -23,6 +23,23 @@ class Account:
 
         return usuario
     
+    # Valida o email, considerando a premissa que dois usuarios não pdoem possuir mesmo email
+    def validateNewUser(email, cursor):
+        cursor.execute(""" SELECT email FROM ACCOUNT """)
+        if email not in cursor.fetchall():
+            return False
+        return True
+                
+    # Compara os dois campos de senha para garantir que as senhas são iguais
+    def validatePassword(password, rePassword):
+        if password != rePassword:
+            return False
+        else:
+            return True
+    
+    def createNewUser(password, email, cursor):
+        cursor.execute(""" INSERT INTO Account (email, _password) VALUES ({0},{1}) """.format("'" + email + "'",password))
+
 class User:
     def __init__(self, nome) -> None:
         self.nome = nome

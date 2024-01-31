@@ -65,4 +65,25 @@ def menu(tipo, mensagem):
     username = session['username']
     return render_template('menu.html', tipo = tipo, mensagem = mensagem )
 
+#Tela para cadastro de novo usuário
+@app.route('/novoUsuario', methods=['GET', 'POST'])
+def novoUsuario():
+    if request.method == 'POST': #espera o usuário enviar dados
+        formulario = request.form.to_dict()
+        email = formulario['email']
+        nome = formulario['nome']
+        username = formulario['username']
+        senha = formulario['password']
+        re_senha = formulario['repassword']
 
+        novoUsername = user.Account.validateNewUser(username)
+        senhasIguais = user.Account.validatePassword(senha, re_senha)
+
+        if novoUsername and senhasIguais:
+            user.Account.createNewUser(username, senha, email, nome)
+            return redirect(url_for('login', tipo = 'positivo', mensagem = 'Usuario criado com sucesso!!'))
+        else:
+            return render_template('novoUsuario.html',
+                                errorUsermaneExists = not novoUsername,
+                                errorPassowrdsDontMatch = not senhasIguais)
+    return render_template('novoUsuario.html')
