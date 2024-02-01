@@ -6,10 +6,11 @@ class Account:
 
     def verifyUsernamePassword(username, password, cursor):
         cursor.execute("""SELECT _password FROM ACCOUNT WHERE email = {0}; """.format(username))
-
-        _pass = cursor.fetchone()[0]
-        if _pass != None:
-            if password == _pass:
+        
+        _pass = cursor.fetchall()
+        
+        if _pass != []:
+            if password == _pass[0][0]:
                 return True
             else: 
                 return False
@@ -19,7 +20,7 @@ class Account:
     # Encontra um usuario no banco_usuarios pelo seu username e retorna na forma de objeto
     def achaUsuario(username, cursor):
         cursor.execute("""SELECT * FROM ACCOUNT WHERE email = {0}; """.format(username))
-        usuario =cursor.fetchone()
+        usuario = cursor.fetchone()
 
         return usuario
     
@@ -28,7 +29,8 @@ class Account:
         cursor.execute(""" SELECT email FROM ACCOUNT """)
         if email in cursor.fetchall():
             return False
-        return True
+        else:
+            return True
                 
     # Compara os dois campos de senha para garantir que as senhas são iguais
     def validatePassword(password, rePassword):
@@ -37,9 +39,9 @@ class Account:
         else:
             return True
     
-    def createNewUser(password, email, cursor):
+    def createNewAccount(password, email, cursor):
         cursor.execute(""" INSERT INTO Account (email, _password) VALUES ({0},{1}) """.format("'" + email + "'","'"+password+"'"))
-
+    
 class User:
     def __init__(self, nome) -> None:
         self.nome = nome

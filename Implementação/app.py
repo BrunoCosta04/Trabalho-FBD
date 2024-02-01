@@ -78,8 +78,9 @@ def novoUsuario():
         senhasIguais = user.Account.validatePassword(senha, re_senha)
 
         if novoUsername and senhasIguais:
-            user.Account.createNewUser( senha, email, cursor)
-            return redirect(url_for('login', tipo = 'positivo', mensagem = 'Usuario criado com sucesso!!'))
+            user.Account.createNewAccount( senha, email, cursor)
+            conection.commit()
+            return redirect(url_for('login', tipo = 'positivo', mensagem = 'Usuário criado com sucesso!!'))
         else:
             return render_template('novoUsuario.html',
                                 errorUsermaneExists = not novoUsername,
