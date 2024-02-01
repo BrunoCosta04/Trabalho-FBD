@@ -26,7 +26,7 @@ class Account:
     # Valida o email, considerando a premissa que dois usuarios não pdoem possuir mesmo email
     def validateNewUser(email, cursor):
         cursor.execute(""" SELECT email FROM ACCOUNT """)
-        if email not in cursor.fetchall():
+        if email in cursor.fetchall():
             return False
         return True
                 
@@ -38,7 +38,7 @@ class Account:
             return True
     
     def createNewUser(password, email, cursor):
-        cursor.execute(""" INSERT INTO Account (email, _password) VALUES ({0},{1}) """.format("'" + email + "'",password))
+        cursor.execute(""" INSERT INTO Account (email, _password) VALUES ({0},{1}) """.format("'" + email + "'","'"+password+"'"))
 
 class User:
     def __init__(self, nome) -> None:

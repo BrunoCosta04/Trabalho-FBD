@@ -71,16 +71,14 @@ def novoUsuario():
     if request.method == 'POST': #espera o usuário enviar dados
         formulario = request.form.to_dict()
         email = formulario['email']
-        nome = formulario['nome']
-        username = formulario['username']
         senha = formulario['password']
         re_senha = formulario['repassword']
 
-        novoUsername = user.Account.validateNewUser(username)
+        novoUsername = user.Account.validateNewUser(email, cursor)
         senhasIguais = user.Account.validatePassword(senha, re_senha)
 
         if novoUsername and senhasIguais:
-            user.Account.createNewUser(username, senha, email, nome)
+            user.Account.createNewUser( senha, email, cursor)
             return redirect(url_for('login', tipo = 'positivo', mensagem = 'Usuario criado com sucesso!!'))
         else:
             return render_template('novoUsuario.html',
