@@ -7,10 +7,11 @@ conection = pg.connect(host = 'localhost', dbname = nomeBaseDados, user = 'postg
 cursor = conection.cursor()
 
 teste = "'vini@example.com'"
-cursor.execute("""SELECT _password FROM ACCOUNT WHERE email = {0}; """.format(teste))
+cursor.execute("""SELECT * FROM ACCOUNT WHERE email = {0}; """.format(teste))
 
-password = cursor.fetchone()[0]
-print(password)
+name = [desc[0] for desc in cursor.description]
+password = cursor.fetchall()[0]
+print(name, password)
 
 conection.commit()
 

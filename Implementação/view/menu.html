@@ -19,7 +19,7 @@
   <body>
     <nav class="navbar bg-danger fixed-top">
       <span class="navbar-item mx-5">
-        <b>{{g.usuario.nome}}</b>
+        <b>{{g.account.email}}</b>
       </span>
       <a
         href="#"
@@ -46,28 +46,14 @@
             <p class="m-3">{{mensagem}}</p>
           </div>
           {% endif %}
-
-          <!-- ------------------------ todos ---------------------------- -->
-          <form method="POST" class="d-flex flex-column">
-            <!-- Search input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="titleSearch">Email</label>
-              <div class="d-flex">
-                <span><i class="bi bi-person fs-4"></i></span
-                ><input
-                  id="titleSearch"
-                  class="form-control"
-                  type="text"
-                  name="username"
-                  placeholder="Search by title"
-                />
-              </div>
-            </div>
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-danger btn-block m-4">
-              Search (Ainda não funciona só placeholder)
+          <div class="row">
+            <button
+              class="btn shadow-lg bg-danger m-3 rounded btn-lg"
+              onclick="goToLoc('/consultas')"
+            >
+              Consultas da parte 2
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

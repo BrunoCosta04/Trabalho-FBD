@@ -1,5 +1,10 @@
-import user
+from model import (
+    query,
+    user
+)
+
 import psycopg2 as pg
+
 from flask import (
     Flask,
     g,
@@ -18,7 +23,6 @@ app.secret_key = 'secretkey'
 nomeBaseDados = 'FBD'
 senha = 'Mensageiro1324'
 
-
 conection = pg.connect(host = 'localhost', dbname = nomeBaseDados, user = 'postgres', password = senha, port = 5432)
 cursor = conection.cursor()
 
@@ -26,8 +30,8 @@ cursor = conection.cursor()
 @app.before_request
 def before_request():
     if 'username' in session:
-        usuario = user.Account.achaUsuario("'"+session['username']+"'", cursor)
-        g.usuario = usuario
+        conta = user.Account.achaUsuario("'"+session['username']+"'", cursor)
+        g.account = conta
 
 # Redireciona para tela de login
 @app.route('/')
@@ -86,3 +90,40 @@ def novoUsuario():
                                 errorUsermaneExists = not novoUsername,
                                 errorPassowrdsDontMatch = not senhasIguais)
     return render_template('novoUsuario.html')
+
+@app.route('/consultas', methods=['GET', 'POST'])
+def consultas():
+    header = []
+    tabela = []
+    if request.method == 'POST':
+
+        formulario = request.form.to_dict()
+        escolha = formulario['escolha']
+
+        if escolha == '1':
+            header, tabela = query.planosMais3Users(cursor)
+        
+        if escolha == '2':
+            header, tabela = query.quantidadeOscarPorCategoria(cursor)
+
+        if escolha == '3':
+            query.atualizaStatusPagamentoPremiumVisa(cursor)
+            conection.commit()
+
+        if escolha == '4':
+            query.removeVisualizaAtrasadoPremium(cursor)
+            conection.commit()
+
+        if escolha == '5':
+            header, tabela = query.achaUsuariosAssistiramNota6(cursor)
+
+        if escolha == '6':
+            header, tabela = query.quantidadeVisuNomeBasica(cursor)
+
+        if escolha == '7':
+            header, tabela = query.contasBasicasAtrasadas(cursor)
+
+        if escolha == '8':
+            header, tabela = query.categoriasComTomHanks(cursor)
+
+    return render_template('consultas.html', header=header,  tabela=tabela)
