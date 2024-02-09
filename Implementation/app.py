@@ -26,13 +26,6 @@ senha = 'Mensageiro1324'
 conection = pg.connect(host = 'localhost', dbname = nomeBaseDados, user = 'postgres', password = senha, port = 5432)
 cursor = conection.cursor()
 
-# Condere se existe uma sessão atualmente com um usuario válido, para prevenir que uma pessoa aleatoria entre diretamente no meio do sistema
-@app.before_request
-def before_request():
-    if 'username' in session:
-        conta = user.Account.achaUsuario("'"+session['username']+"'", cursor)
-        g.account = conta
-
 # Redireciona para tela de login
 @app.route('/')
 def initial():
