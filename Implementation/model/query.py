@@ -86,3 +86,30 @@ def categoriasComTomHanks(cursor):
 				  	        where workername = 'Tom Hanks');""")
 
     return [desc[0] for desc in cursor.description], cursor.fetchall()
+
+
+
+def adicionaAssinaturaRuim(cursor):
+    cursor.execute("""INSERT INTO _Subscription ( signingDate, paymentStatus, durationSub, email, planID) VALUES
+( '2024-01-01', 'Paid', 12, 'vini@example.com', 1)""")
+    cursor.execute("""select * from _subscription""")
+
+    return [desc[0] for desc in cursor.description], cursor.fetchall()
+    
+    
+
+
+
+def adicionaAssinaturaBoa(cursor):
+    cursor.execute("""INSERT INTO _Subscription ( signingDate, paymentStatus, durationSub, email, planID) VALUES
+( '2030-03-01', 'Paid', 12, 'vini@example.com', 1)""")
+    cursor.execute("""select * from _subscription""")
+
+    return [desc[0] for desc in cursor.description], cursor.fetchall()
+    
+
+
+def selectAssinaturas(cursor):
+    cursor.execute("""select * from _subscription""")
+
+    return [desc[0] for desc in cursor.description], cursor.fetchall()

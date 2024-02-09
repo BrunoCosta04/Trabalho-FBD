@@ -67,7 +67,8 @@ CREATE TABLE _Subscription (
 	signingDate date,
 	paymentStatus VARCHAR(20),
 	durationSub smallint,
-	email VARCHAR(80) PRIMARY KEY,
+	email VARCHAR(80) ,
+	PRIMARY KEY (signingDate, email) ,
 	FOREIGN KEY (email) REFERENCES Account(email)
 	ON UPDATE CASCADE 
 	ON DELETE CASCADE,

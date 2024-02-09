@@ -20,8 +20,8 @@ app = Flask(__name__, template_folder='view')
 app.secret_key = 'secretkey'
 
 
-nomeBaseDados = 'FBD'
-senha = 'Mensageiro1324'
+nomeBaseDados = 'Netflix'
+senha = 'Sulamericana1'
 
 conection = pg.connect(host = 'localhost', dbname = nomeBaseDados, user = 'postgres', password = senha, port = 5432)
 cursor = conection.cursor()
@@ -118,5 +118,12 @@ def consultas():
 
         if escolha == '8':
             header, tabela = query.categoriasComTomHanks(cursor)
+
+        if escolha == '9':
+            header, tabela = query.adicionaAssinaturaRuim(cursor)
+        if escolha == '10':
+            header, tabela = query.adicionaAssinaturaBoa(cursor)
+        if escolha == '11':
+            header, tabela = query.selectAssinaturas(cursor)
 
     return render_template('consultas.html', header=header,  tabela=tabela)
